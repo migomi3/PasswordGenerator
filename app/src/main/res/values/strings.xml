@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Password Generator</string>
+    <string name="character_count_instructions">Select number of characters</string>
+    <string name="include_capitals">include capitals</string>
+    <string name="default_text">default text</string>
+    <string name="include_special_characters">include special characters</string>
+    <string name="create_password">Create Password</string>
+    <string name="include_numbers">include numbers</string>
+    <string name="default_number">0</string>
 </resources>
