@@ -7,4 +7,7 @@
     <string name="create_password">Create Password</string>
     <string name="include_numbers">include numbers</string>
     <string name="default_number">4</string>
+    <string name="result_dialog_instructions">Password will not be saved passed this point</string>
+    <string name="password_results_default">password results</string>
+    <string name="ok">OK</string>
 </resources>

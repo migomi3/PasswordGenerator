@@ -1,13 +1,16 @@
 package com.example.passwordgenerator
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.chip.Chip
 import kotlin.random.Random
 
@@ -48,7 +51,7 @@ class MainActivity : ComponentActivity() {
         createPasswordButton.setOnClickListener() {
             password = GeneratePassword(seekBar.getProgress(), capitalChip.isChecked, numberChip.isChecked, specialCharChip.isChecked)
 
-            Toast.makeText(this, password, Toast.LENGTH_LONG).show()
+            showResultDialog(this, password)
         }
     }
 }
@@ -83,3 +86,19 @@ fun replaceRandomCharWithNumber(length: Int, str: String) : String {
     val numb: String = Random.nextInt(0,10).toString()
     return str.replaceRange(indexToReplace, indexToReplace + 1, numb)
 }
+
+fun showResultDialog(context: Context, result: String) {
+    val inflater = LayoutInflater.from(context)
+    val resultDialog = inflater.inflate(R.layout.password_result_dialog_box, null)
+
+    val resultView = resultDialog.findViewById<TextView>(R.id.password_result_text)
+    if (resultView != null) {
+        resultView.text = result
+    }
+
+    val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+        .setView(resultDialog)
+
+    builder.create().show()
+}
+
